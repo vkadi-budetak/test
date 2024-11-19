@@ -600,19 +600,452 @@ console.log(`${doubleDigitHours}:${doubleDigitMinutes}`);
 //* Example 9 - Колекція курсів (includes, indexOf, push і т. д.)
 // Напишіть функції для роботи з колекцією навчальних курсів courses:
 
-// addCourse(name) - додає курс до кінця колекції
-// removeCourse(name) - видаляє курс із колекції
-// updateCourse(oldName, newName) - змінює ім'я на нове
+//? addCourse(name) - додає курс до кінця колекції
+//? removeCourse(name) - видаляє курс із колекції
+//? updateCourse(oldName, newName) - змінює ім'я на нове
 
-const courses = ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL'];
+// const courses = ["HTML", "CSS", "JavaScript", "React", "PostgreSQL"];
 
-addCourse('Express');
-console.log(courses); // ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL', 'Express']
-addCourse('CSS'); // 'Ви вже маєте такий курс'
+// addCourse("Express");
+// console.log(courses); // ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL', 'Express']
+// addCourse("CSS"); // 'Ви вже маєте такий курс'
 
-removeCourse('React');
-console.log(courses); // ['HTML', 'CSS', 'JavaScript', 'PostgreSQL', 'Express']
-removeCourse('Vue'); // 'Курс із таким ім'ям не знайдено'
+// removeCourse("React");
+// console.log(courses); // ['HTML', 'CSS', 'JavaScript', 'PostgreSQL', 'Express']
+// removeCourse("Vue"); // 'Курс із таким ім'ям не знайдено'
 
-updateCourse('Express', 'NestJS');
-console.log(courses); // ['HTML', 'CSS', 'JavaScript', 'PostgreSQL', 'NestJS']
+// updateCourse("Express", "NestJS");
+// console.log(courses); // ['HTML', 'CSS', 'JavaScript', 'PostgreSQL', 'NestJS']
+// updateCourse("Vue", "Angular"); // 'Курс із таким ім'ям не знайдено'
+// updateCourse("JavaScript", "Python");
+
+// function addCourse(name) {
+//   if (courses.includes(name)) {
+//     console.log(`Курс ${name} вже існує!`);
+//   } else {
+//     courses.push(name);
+//   }
+// }
+
+// function removeCourse(name) {
+//   console.log(`Курсу ${name} не існує!`);
+// if (!courses.includes(name)) {
+// } else {
+//   const index = courses.indexOf(name);
+//   courses.splice(index, 1);
+// }
+
+//   const index = courses.indexOf(name);
+//   if (index === -1) {
+//     console.log(`Курсу ${name} не існує!`);
+//   } else {
+//     courses.splice(index, 1);
+//   }
+// }
+
+// function updateCourse(oldName, newName) {
+//   const index = courses.indexOf(oldName);
+//   if (index === -1) {
+//     console.log(`Курсу ${oldName} не існує!`);
+//   } else {
+//     courses[index] = newName;
+//   }
+// }
+
+//! ОБЄКТИ
+
+//* Example 1 - Основи об'єктів
+// Напиши скрипт, який для об'єкта user, послідовно:
+
+// додає поле mood зі значенням 'happy'
+// замінює значення hobby на 'skydiving'
+// замінює значення premium на false
+// виводить вміст об'єкта user у форматі ключ:значення використовуючи Object.keys() та for...of
+// Код
+// const user = {
+//   name: 'Mango',
+//   age: 20,
+//   hobby: 'html',
+//   premium: true,
+// };
+
+// user.mood = "happy"; // user["mood"] = "happy"
+// user.hobby = "skydiving";
+// user.premium = false;
+
+// const userKeys = Object.keys(user);
+// console.log(userKeys);
+// console.log(user);
+
+// for (const key of userKeys) {
+//   console.log(`${key}: ${user[key]}`);
+// }
+
+//* Example 2 - метод Object.values()
+// У нас є об'єкт, де зберігаються зарплати нашої команди. Напишіть код для підсумовування всіх зарплат і збережіть результат у змінній sum. Повинно вийти 390. Якщо об'єкт salaries порожній, то результат має бути 0.
+
+// Код
+// const salaries = {
+//   John: 100,
+//   Ann: 160,
+//   Pete: 130,
+// };
+
+// const values = Object.values(salaries);
+// let sum = 0;
+
+// for (const value of values) {
+//   sum += value;
+// }
+
+// console.log(sum);
+
+//* Example 3 - Масив об'єктів
+// Напишіть функцію calcTotalPrice(stones, stoneName), яка приймає масив об'єктів та рядок з назвою каменю. Функція рахує і повертає загальну вартість каміння з таким ім'ям, ціною та кількістю з об'єкта
+
+// Код
+// const stones = [
+//   { name: 'Смарагд', price: 1300, quantity: 4 },
+//   { name: 'Діамант', price: 2700, quantity: 3 },
+//   { name: 'Сапфір', price: 400, quantity: 7 },
+//   { name: 'Щебінь', price: 200, quantity: 2 },
+// ];
+
+// function calcTotalPrice(stones, stoneName) {
+//   //     1. запустити цикл на перебір масиву каменів
+//   //     1.1. Порівняємо stoneName з ключем name у поточному обʼєкті
+//   //     1.2. Якщо успішно - повернути добуток ціни на кількість
+//   //   2. Повернути 0
+
+//     for (const stone of stones) {
+//       if (stone.name === stoneName) {
+//         return stone.quantity * stone.price;
+//       }
+//     }
+
+//     console.log(stoneName)
+
+//     return 0;
+//   }
+
+//   console.log(calcTotalPrice(stones, "Сапфір")); // 2800
+//   console.log(calcTotalPrice(stones, "Смарагд")); // 5200
+//   console.log(calcTotalPrice(stones, "Рубін")); // 0
+//   console.log(calcTotalPrice(stones, "Щебінь")); // 0
+
+//* Example 4 - Комплексні завдання
+// Напиши скрипт управління особистим кабінетом інтернет банку. Є об'єкт account в якому необхідно реалізувати методи для роботи з балансом та історією транзакцій.
+
+// /*
+//  * Типів транзакцій всього два.
+//  * Можна покласти чи зняти гроші з рахунку.
+//  */
+
+// const TRANSACTIONS = {
+//   DEPOSIT: "deposit",
+//   WITHDRAW: "withdraw",
+// };
+
+// /*
+//  * Кожна транзакція це об'єкт із властивостями: id, type та amount
+//  */
+
+// const account = {
+//   // Поточний баланс рахунку
+//   balance: 0,
+
+//   // Історія транзакцій
+//   transactions: [],
+
+//   /*
+//    * Метод створює та повертає об'єкт транзакції.
+//    * Приймає суму та тип транзакції.
+//    */
+//   createTransaction(amount, type) {
+//     return {
+//       amount,
+//       type,
+//       id: this.transactions.length,
+//       currentBalance: this.balance,
+//     };
+//   },
+
+//   /*
+//    * Метод, що відповідає за додавання суми до балансу.
+//    * Приймає суму транзакції.
+//    * Викликає createTransaction для створення об'єкта транзакції
+//    * після чого додає його до історії транзакцій
+//    */
+//   deposit(amount) {
+//     this.balance += amount;
+//     const transaction = this.createTransaction(amount, TRANSACTIONS.DEPOSIT);
+//     this.transactions.push(transaction);
+//   },
+
+//   /*
+//    * Метод, що відповідає за зняття суми з балансу.
+//    * Приймає суму транзакції.
+//    * Викликає createTransaction для створення об'єкта транзакції
+//    * після чого додає його до історії транзакцій.
+//    *
+//    * Якщо amount більше ніж поточний баланс, виводь повідомлення
+//    * про те, що зняття такої суми не можливе, недостатньо коштів.
+//    */
+//   withdraw(amount) {
+//     if (amount > this.balance) {
+//       console.log(`Недостаньо коштів! Поточний баланс: ${this.balance}`);
+//     } else {
+//       this.balance -= amount;
+//       const transaction = this.createTransaction(amount, TRANSACTIONS.WITHDRAW);
+//       this.transactions.push(transaction);
+//     }
+//   },
+
+//   /*
+//    * Метод повертає поточний баланс
+//    */
+//   getBalance() {
+//     return this.balance;
+//   },
+
+//   /*
+//    * Метод шукає та повертає об'єкт транзакції по id
+//    */
+//   getTransactionDetails(id) {
+//     /*
+//       1. перебрати масив транзакцій
+//         1.1. порівнюємо поточне айді транзакції з айді параметру, якщо рівне - повертаємо обʼєкт
+//       2. повернути пустий обʼєкт
+//     */
+//     for (const transaction of this.transactions) {
+//       if (transaction.id === id) {
+//         return transaction;
+//       }
+//     }
+//     return {};
+//   },
+
+//   /*
+//    * Метод повертає кількість коштів
+//    * певного типу транзакції з усієї історії транзакцій
+//    */
+//   getTransactionTotal(type) {
+//     /*
+//     1. створюємо накопичувач транзакцій
+//     2. перебрати масив транзакцій
+//       2.1. Перевірка типу транзакції(якщо поточний тип транзакції в масиві дорівнює параметру type, то - додаємо суму в накопичував)
+//     3. повертаємо накопичувач
+//     */
+//     let total = 0;
+//     for (const transaction of this.transactions) {
+//       if (transaction.type === type) {
+//         total += transaction.amount;
+//       }
+//     }
+//     return total;
+//   },
+// };
+// account.deposit(500);
+// account.withdraw(400);
+// account.withdraw(400);
+// account.deposit(1000);
+// account.withdraw(100);
+// account.withdraw(100);
+// account.deposit(100);
+// account.withdraw(1000);
+// account.deposit(100);
+// console.log(account);
+
+// console.log(account.getTransactionDetails(0));
+// console.log(account.getTransactionTotal(TRANSACTIONS.WITHDRAW));
+// console.log(account.getTransactionTotal(TRANSACTIONS.DEPOSIT));
+
+// // this це обʼєкт, який викликає ф-цію
+
+//! Об'єкти. Операції rest та spread
+
+//* Example 1 - Деструктуризація
+// Перепиши функцію так, щоб вона приймала один об'єкт параметрів замість набору незалежних аргументів.
+
+// function calcBMI({ weight, height }) {
+//   const numericWeight = Number(weight.replace(",", "."));
+//   const numericHeight = Number(height.replace(",", "."));
+//   return Number((numericWeight / numericHeight ** 2).toFixed(1));
+// }
+
+// // Було
+// // console.log(calcBMI('88,3', '1.75'));
+// // console.log(calcBMI('68,3', '1.65'));
+// // console.log(calcBMI('118,3', '1.95'));
+
+// // Очікується
+// console.log(
+//   calcBMI({
+//     weight: "88,3",
+//     height: "1.75",
+//   })
+// );
+// console.log(
+//   calcBMI({
+//     weight: "68,3",
+//     height: "1.65",
+//   })
+// );
+// console.log(
+//   calcBMI({
+//     weight: "118,3",
+//     height: "1.95",
+//   })
+// );
+
+//* Example 2 - Деструктуризація
+// Перепиши функцію так, щоб вона приймала один об'єкт параметрів замість набору незалежних аргументів.
+
+// function printContactsInfo({ names, phones }) {
+//   const nameList = names.split(",");
+//   const phoneList = phones.split(",");
+//   for (let i = 0; i < nameList.length; i += 1) {
+//     console.log(`${nameList[i]}: ${phoneList[i]}`);
+//   }
+// }
+
+// // Було
+// // printContactsInfo(
+// //   'Jacob,William,Solomon,Artemis',
+// //   '89001234567,89001112233,890055566377,890055566300',
+// // );
+
+// // Очікується
+// printContactsInfo({
+//   names: "Jacob,William,Solomon,Artemis",
+//   phones: "89001234567,89001112233,890055566377,890055566300",
+// });
+
+//* Example 3 - Глибока деструктуризація
+// Перепиши функцію так, щоб вона приймала один об'єкт параметрів замість набору незалежних аргументів.
+
+// function getBotReport({
+//   companyName,
+//   bots: { repair: repairBots, defence: defenceBots },
+// }) {
+//   return `${companyName} has ${repairBots + defenceBots} bots in stock`;
+// }
+
+// // Було
+// // console.log(getBotReport('Cyberdyne Systems', 150, 50));
+
+// // Очікується
+// console.log(
+//   getBotReport({
+//     companyName: "Cyberdyne Systems",
+//     bots: {
+//       repair: 150,
+//       defence: 50,
+//     },
+//   })
+// ); // "Cyberdyne Systems has 200 bots in stock"
+
+// const user = {
+//   username: "Vlad",
+//   age: 43,
+// };
+
+// const { age } = user;
+// // const age = user.age (43)
+
+// const { username: name } = user;
+// // const name = user.username (Vlad)
+// console.log(user)
+
+//* Example 5 - Операція spread
+// Доповни функцію createContact(partialContact) так, щоб вона повертала новий об'єкт контакту з доданими властивостями id та createdAt, а також list зі значенням "default" якщо в partialContact немає такої властивості.
+
+// function createContact(partialContact) {
+//   return {
+//     list: "default",
+//     ...partialContact,
+//     id: generateId(),
+//     createdAt: new Date(),
+//   };
+// }
+
+// console.log(
+//   createContact({
+//     name: "Mango",
+//     email: "mango@mail.com",
+//     list: "friends",
+//   })
+// );
+// console.log(
+//   createContact({
+//     name: "Poly",
+//     email: "poly@hotmail.com",
+//   })
+// );
+
+// function generateId() {
+//   return "_" + Math.random().toString(36).substr(2, 9);
+// }
+
+
+//* Example 6 - Операція rest
+// Напиши функцію transformUsername(user) так, щоб вона повертала новий об'єкт із властивістю fullName, замість firstName та lastName.
+
+// function transformUsername({ firstName, lastName, ...restProps }) {
+//   return {
+//     fullname: `${firstName} ${lastName}`,
+//     ...restProps,
+//   };
+// }
+
+// console.log(
+//   transformUsername({
+//     id: 1,
+//     firstName: "Jacob",
+//     lastName: "Mercer",
+//     email: "j.mercer@mail.com",
+//     friendCount: 40,
+//   })
+// );
+
+// /*
+// {
+//     id: 1,
+//     fullName: "Jacob Mercer",
+//     email: "j.mercer@mail.com",
+//     friendCount: 40,
+// }
+// */
+
+// console.log(
+//   transformUsername({
+//     id: 2,
+//     firstName: "Adrian",
+//     lastName: "Cross",
+//     email: "a.cross@hotmail.com",
+//     friendCount: 20,
+//   })
+// );
+
+// function findMatches(arr, ...args) {
+//   const result = [];
+//   for (const num of args) {
+//     if (arr.includes(num)) {
+//       result.push(num);
+//     }
+//   }
+
+//   return result;
+// }
+
+// console.log(findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7, 4));
+
+// function add(...args) {
+//   const total = 0;
+//   for (const arg of args) {
+//     total += arg;
+//   }
+//   return total;
+// }
+
+// console.log(add(1, 5, 3));
