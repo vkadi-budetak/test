@@ -40,6 +40,7 @@ for (let i = 3; i <= 10; i += 1) {
 // }
 
 /*
+
 1.
 for (let i = 1; i <= 10; i += 1) {
     if (1 % 2 === 0) break;
@@ -987,7 +988,6 @@ console.log(`${doubleDigitHours}:${doubleDigitMinutes}`);
 //   return "_" + Math.random().toString(36).substr(2, 9);
 // }
 
-
 //* Example 6 - Операція rest
 // Напиши функцію transformUsername(user) так, щоб вона повертала новий об'єкт із властивістю fullName, замість firstName та lastName.
 
@@ -1049,3 +1049,116 @@ console.log(`${doubleDigitHours}:${doubleDigitMinutes}`);
 // }
 
 // console.log(add(1, 5, 3));
+
+//! Коллбеки. Стрілочні функції. forEach.
+
+//* Example 1 - Коллбек функції
+
+// Напишіть наступні функції:
+
+//? createProduct(obj, callback) - приймає об'єкт товару без id, а також коллбек. Функція створює об'єкт товару, додаючи йому унікальний ідентифікатор у властивість id та викликає коллбек передаючи йому створений об'єкт.
+
+//? logProduct(product) - колббек приймаючий об'єкт продукту і логуючий його в консоль
+
+//? logTotalPrice(product) - колббек, що приймає об'єкт продукту і логіює загальну вартість товару в консоль
+
+//? Виконайте рефакторинг коду за допомогою стрілочних функцій.
+
+/*
+{
+    name: string,
+    amount: number,
+    price: number
+}
+*/
+
+// function createProduct(obj, callback) {
+//   const newObj = { ...obj, id: Date.now() };
+//   callback(newObj);
+// }
+
+// // function logProduct(product) {
+// //   console.log(product);
+// // }
+
+// // function logTotalPrice({ amount, price }) {
+// //   console.log(amount * price);
+// // }
+
+// const logProduct = (product) => console.log(product);
+
+// const logTotalPrice = ({ amount, price }) => console.log(amount * price);
+
+// const product = {
+//   name: "Cheese",
+//   price: 20,
+//   amount: 100,
+// };
+
+// createProduct(product, logProduct);
+// createProduct(product, logTotalPrice);
+
+//* Example 3 - Коллбек функції
+
+//? Напишіть функцію each(array, callback), яка першим параметром очікує масив, а другим - функцію, яка застосовується до кожного елемента масиву. Функція each повинна повернути новий масив, елементами якого будуть результати виклику коллбека.
+
+//? Виконайте рефакторинг коду за допомогою стрілочних функцій.
+
+// function each(array, callback) {
+//   /*
+//     1. створюємо пустий масив
+//     2. перебираємо всі елементи масиву за допомогою циклу
+//         2.1. створюємо новий елемент масиву викликаючи колбек ф-цію на поточному елементі масиву
+//         2.2. додати цей елемент в новий масив
+//     3. повернути новий масив
+//     */
+//   const newArray = [];
+//   for (const el of array) {
+//     const newEl = callback(el);
+//     newArray.push(newEl);
+//   }
+//   return newArray;
+// }
+
+// //------
+
+// function square(el) {
+//   return el * el;
+// }
+
+// const arr = [1, 2, 3, 4, 5];
+
+// console.log(each(arr, square)); // [1, 4, 9, 16, 25]
+
+// console.log(each(arr, (el) => el + 1));
+// console.log(each(arr, (el) => Math.sqrt(el)));
+// console.log(each(arr, (el) => 5 * el));
+// console.log(each(arr, (el) => el % 2 === 0));
+
+//* порахувати середнє арифметичне всіх елементів масиву за допомогою forEach
+
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+
+// let sum = 0;
+
+// arr.forEach((el) => (sum += el));
+
+// console.log(sum / arr.length);
+
+//?=====================
+
+function calculateTotalPrice(orderedItems) {
+  let totalPrice = 0;
+  // Change code below this line
+
+  orderedItems.forEach((el) => (totalPrice += el));
+
+  // for (let i = 0; i < orderedItems.length; i += 1) {
+  //   totalPrice += orderedItems[i];
+  // }
+
+  // Change code above this line
+  return totalPrice;
+}
+
+console.log(calculateTotalPrice([12, 85, 37, 4]));
