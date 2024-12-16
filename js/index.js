@@ -1474,3 +1474,29 @@ const cars = [
 // ];
 
 // console.log(courses.flat(Infinity));
+
+//! ========================================
+
+function getCommonElements(firstArray, secondArray) {
+  const commonElements = [];
+  // Change code below this line
+
+  // for (let i = 0; i < firstArray.length; i += 1) {
+  //   if (secondArray.includes(firstArray[i])) {
+  //     commonElements.push(firstArray[i]);
+  //   }
+  // }
+
+  firstArray.forEach((el) => {
+    if (secondArray.includes(el)) {
+      commonElements.push(el);
+    }
+  });
+
+  return commonElements;
+  // Change code above this line
+}
+
+console.log(getCommonElements([1, 2, 3], [2, 4]));
+console.log(getCommonElements([1, 2, 3], [2, 1, 17, 19]));
+console.log(getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27]));
