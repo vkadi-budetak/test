@@ -1241,7 +1241,7 @@ console.log(`${doubleDigitHours}:${doubleDigitMinutes}`);
 // 4. arr.reduce((acc = 10, el = 5) => 10 + 5);
 // result: 15
 
-//! ========================================
+//! ПЕРЕБИРАЮЧИ МЕТОДИ МАСИВУ
 
 const cars = [
   {
@@ -1333,8 +1333,6 @@ const cars = [
 
 // console.table(getModels(cars));
 
-//! ========================================
-
 //* Example 2 - Метод map
 // Нехай функція makeCarsWithDiscount повертає новий масив об'єктів із змінним значенням властивості price залежно від переданої знижки.
 
@@ -1344,7 +1342,7 @@ const cars = [
 // console.table(makeCarsWithDiscount(cars, 0.2));
 // console.table(makeCarsWithDiscount(cars, 0.4));
 
-// console.table(cars)
+// console.table(cars);
 
 //! ========================================
 
@@ -1476,27 +1474,3 @@ const cars = [
 // console.log(courses.flat(Infinity));
 
 //! ========================================
-
-function getCommonElements(firstArray, secondArray) {
-  const commonElements = [];
-  // Change code below this line
-
-  // for (let i = 0; i < firstArray.length; i += 1) {
-  //   if (secondArray.includes(firstArray[i])) {
-  //     commonElements.push(firstArray[i]);
-  //   }
-  // }
-
-  firstArray.forEach((el) => {
-    if (secondArray.includes(el)) {
-      commonElements.push(el);
-    }
-  });
-
-  return commonElements;
-  // Change code above this line
-}
-
-console.log(getCommonElements([1, 2, 3], [2, 4]));
-console.log(getCommonElements([1, 2, 3], [2, 1, 17, 19]));
-console.log(getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27]));
