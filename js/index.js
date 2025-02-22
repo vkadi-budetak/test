@@ -1741,19 +1741,46 @@ const cars = [
 
 //! ========================================
 
-function makeTransaction(pricePerDroid, orderedQuantity, customerCredits) {
-  let message = "Insufficient funds!";
-  // Change code below this line
-  const totalPrice = pricePerDroid * orderedQuantity;
-  const res = customerCredits - totalPrice;
+// Створити кілька кнопок на основі масива з обєктами використовуючи createElement
 
-  if (totalPrice >= customerCredits) {
-    return message;
-  } else {
-    return `You ordered ${orderedQuantity} droids, you have ${res}  credits left`;
-  }
-  // Change code above this line
-  return message;
+const colors = [
+  {
+    label: "red",
+    color: "#FF0000",
+  },
+  {
+    label: "green",
+    color: "#00FF00",
+  },
+  {
+    label: "blue",
+    color: "#0000FF",
+  },
+  {
+    label: "yellow",
+    color: "#FFFF00",
+  },
+];
+
+const fragment = document.createDocumentFragment(); - створити батька(фрагмент);
+
+for (const { label, color } of colors) {
+  const buttonEl = document.createElement("button"); - створити елемент кнопки;
+  buttonEl.textContent = label; - даємо кнопці підпис;
+  buttonEl.style.backgroundColor = color; - даємо кнопці стиль кольору;
+  buttonEl.type = "button"; - додаємо тип кнопки;
+  fragment.appendChild(buttonEl); - додати кнопку в батька;
 }
-console.log(makeTransaction(3000, 5, 23000));
-console.log(makeTransaction(1000, 300, 15000));
+
+document.body.prepend(fragment); - пушим батька в дом
+
+/*
+1. 
+2. перебрати циклом масив кнопок
+    2.1. 
+    2.2. 
+    2.3. 
+    2.4. 
+    2.5. 
+3. 
+*/
